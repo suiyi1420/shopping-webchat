@@ -1,0 +1,13 @@
+<!--components/fullpic/fullpic.wxml-->
+<view class="body" hidden="{{!isShow}}">
+<view class="top"><text>{{current}}</text><text>/</text><text>{{piclist.length}}</text></view>
+  <swiper class="swiper" indicator-color="#efefef" indicator-active-color="#cc0000"  circular="true" bindchange="onSlideChangeEnd">  
+      <block wx:for="{{piclist}}" wx:key="{{item.picImgId}}">  
+        <swiper-item >  
+             
+            <image class="swiper_img" src="{{item.picImg}}" mode="aspectFit" bindtap='hideDialog'/>  
+              
+        </swiper-item>  
+      </block>  
+  </swiper>
+  </view>

@@ -1,0 +1,82 @@
+<view class="topd">
+<swiper class="swiper"  indicator-dots="true"  indicator-color="#efefef" indicator-active-color="#cc0000"  circular="true" >  
+      <block wx:for="{{productImages}}" wx:key="{{item.picImgId}}">  
+        <swiper-item class="swiper_item">  
+             
+            <image class="swiper_img" src="{{item.picImg}}" mode="aspectFit" bindtap='showfullpic'/>  
+              
+        </swiper-item>  
+      </block>  
+</swiper> 
+<view class="title_div">
+  <view class="title"><img src="" />{{product.name}}</view>
+  <view class="introduce">{{product.introduce}}</view>
+  <view class="price">￥{{price}}</view>
+</view>
+
+<view class="select_div">
+ 
+    <view class="select_title" wx:for="{{kindVOs}}" wx:for-item="item" wx:key="{{index}}">
+      <view class="select_title_name">{{item.name}}</view>
+      <view class="select_t_item">
+        <view wx:key="{{index}}" wx:for="{{item.kindAttributes}}" wx:for-item="kind" >
+          <view class="select_t_i_name {{kind.isselect==1?'select_t_i_n_selected':''}}" data-kindattrid="{{kind.kindAttrId}}" data-kindid="{{item.kindId}}" bindtap="selecttype" >{{kind.name}}</view>
+         </view>
+      </view>
+    </view>
+  
+</view>
+
+
+<view class="h-tab">  
+    <view class="h-tab-top " bindtap="tabFun">  
+      <view class="h-tab-t-item {{tabArr.curHdIndex=='0'? 'h-active' : ''}}" id="tab-hd01" data-id="0">商品介绍</view>  
+      <view class="h-tab-t-item {{tabArr.curHdIndex=='1'? 'h-active' : ''}}" id="tab-hd02" data-id="1">详细参数</view>  
+      <view class="h-tab-t-item {{tabArr.curHdIndex=='2'? 'h-active' : ''}}" id="tab-hd03" data-id="2">商品评价</view>  
+    </view>  
+    
+    <view class="h-tab-bottom">  
+      <view class="h-tab-b-item {{tabArr.curBdIndex=='0'? 'h-tab-b-active' : ''}}">
+        <block wx:for="{{product.description}}" wx:key="{{index}}"> 
+          <image class="descriptionImg" src='{{item}}' mode='scaleToFill'></image>
+        </block>
+      </view>  
+      <view class="h-tab-b-item {{tabArr.curBdIndex=='1'? 'h-tab-b-active' : ''}}">
+        <block wx:for="{{productParameters}}" wx:key="{{item.index}}"> 
+          <view class="productParameters"><view class="p_item">{{item.name}}:</view><view class="p_item">{{item.value}}</view></view>
+        </block>
+      </view>  
+      <view class="h-tab-b-item {{tabArr.curBdIndex=='2'? 'h-tab-b-active' : ''}}" style="background-color:#f3f1f1;">
+        <block wx:for="{{commentVOs}}" wx:key="{{index}}"> 
+          <view class="comment_div">
+            <view class="comment_top">
+              <view class="comment_l"><image class="comment_img" src="{{item.picImg}}" mode='aspectFit'></image></view>
+              <view class='comment_r'>
+                <view class="comment_name comment_r_item">{{item.userName}}</view>
+                <view class="comment_time comment_r_item">{{item.createTime}}</view>
+              </view>
+            </view>
+            <view class="comment_content">{{item.content}}</view>
+          </view>
+        </block>
+      </view>  
+       
+    </view>  
+    <view class="h-tab-b-foot" style="display:{{moreLoading==true? 'flex':'none'}}">—— 正在加载 ——</view>
+    <view class="h-tab-b-foot" style="display:{{noMoreData==true? 'flex':'none'}}">—— 已经到底啦 ——</view>
+  </view>  
+</view>
+
+
+
+<view class="footer">
+  <view class="join_car" hidden='{{!youhuo}}'>加入购物车</view>
+  <view class="join_car wuhuo" hidden='{{youhuo}}'>暂无库存</view>
+  <view class="shoppingcar">
+    <image class="img" src='../../images/shoppingcar2.png' mode='aspectFit'></image>
+    <text>购物车</text>  
+  </view>
+</view>
+
+<fullpic id="fullpic" piclist="{{productImages}}"/>
+

@@ -1,0 +1,118 @@
+<!--index.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+</form>
+  <swiper class="image-swiper" indicator-dots="true"  indicator-color="#efefef"
+       indicator-active-color="#cc0000" autoplay="{{advert.autoplay}}" interval="{{advert.interval}}" duration="{{advert.duration}}" circular="true">  
+      <block wx:for="{{advertImgUrls}}" wx:key="{{item.index}}">  
+        <swiper-item >  
+           <navigator class="swiper-navigator" url="{{item.href}}" hover-class="navigator-hover">  
+            <image src="{{item.picImg}}" class="slide-image" width="355" height="150"/>  
+           </navigator>   
+        </swiper-item>  
+      </block>  
+</swiper> 
+<view class="h-title">
+    <image class="h-t-pic" src='../../images/wnjx.png' mode="aspectFit"></image>
+    <view class="h-t-text">为你精选</view>
+</view>
+<view class="index-leibie">
+  <block wx:for="{{hotType}}" wx:key="{{item.index}}"> 
+    <view class="i-l-item">
+      <view class="i-l-i-title">{{item.name}}</view>
+      <view class="i-l-i-sub">为你精选</view>
+      <image class="i-l-i-pic" src='{{item.pic}}' mode="aspectFit"></image>
+      
+    </view>
+  </block>
+</view> 
+<view class="h-title">
+    <image class="h-t-pic" src='../../images/wnjs.png' mode="aspectFit"></image>
+    <view class="h-t-text">为你劲省</view>
+</view>
+<view class="hotproduct">
+  <view class="h-tab">  
+    <view class="h-tab-top " bindtap="tabFun">  
+      <view class="h-tab-t-item {{tabArr.curHdIndex=='0'? 'h-active' : ''}}" id="tab-hd01" data-id="0">新品推荐</view>  
+      <view class="h-tab-t-item {{tabArr.curHdIndex=='1'? 'h-active' : ''}}" id="tab-hd02" data-id="1">为你推荐</view>  
+      <view class="h-tab-t-item {{tabArr.curHdIndex=='2'? 'h-active' : ''}}" id="tab-hd03" data-id="2">明星商品</view>  
+      <view class="h-tab-t-item {{tabArr.curHdIndex=='3'? 'h-active' : ''}}" id="tab-hd04" data-id="3">热评商品</view>  
+    </view>  
+    
+    <view class="h-tab-bottom">  
+      <view class="h-tab-b-item {{tabArr.curBdIndex=='0'? 'h-tab-b-active' : ''}}">
+        <block wx:for="{{newproducts}}" wx:key="{{item.index}}"> 
+          <view class="h-tab-b-i-item" data-productid="{{item.productId}}" data-productnumber="{{item.productNumber}}" bindtap='nativeToProtuctInfo'>
+            <view class="h-tab-b-i-i-top">
+              <view class="h-tab-b-i-i-t-left">
+                <view class="h-tab-b-i-i-t-l-title">{{item.name}}</view>
+                <view class="h-tab-b-i-i-t-l-price"><text style="font-size:3vw;">￥</text>{{item.showPrice}}.00</view>
+              </view>
+              <image class="h-tab-b-i-i-t-right" src='{{item.picImg}}'></image>
+            </view>
+            <view class="h-tab-b-i-i-bottom">
+              <image class="h-tab-b-i-i-b-img" src='../../images/tab_star.png' mode='aspectFit'></image>
+              <view class="h-tab-b-i-i-b-text">{{item.introduce}}</view>
+            </view>
+          </view>
+        </block>
+      </view>  
+      <view class="h-tab-b-item {{tabArr.curBdIndex=='1'? 'h-tab-b-active' : ''}}">
+        <block wx:for="{{popularproducts}}" wx:key="{{item.index}}"> 
+          <view class="h-tab-b-i-item" data-productid="{{item.productId}}" data-productnumber="{{item.productNumber}}" bindtap='nativeToProtuctInfo'>
+            <view class="h-tab-b-i-i-top">
+              <view class="h-tab-b-i-i-t-left">
+                <view class="h-tab-b-i-i-t-l-title">{{item.name}}</view>
+                <view class="h-tab-b-i-i-t-l-price"><text style="font-size:3vw;">￥</text>{{item.showPrice}}.00</view>
+              </view>
+              <image class="h-tab-b-i-i-t-right" src='{{item.picImg}}'></image>
+            </view>
+            <view class="h-tab-b-i-i-bottom">
+              <image class="h-tab-b-i-i-b-img" src='../../images/tab_star.png' mode='aspectFit'></image>
+              <view class="h-tab-b-i-i-b-text">{{item.introduce}}</view>
+            </view>
+          </view>
+        </block>
+      </view>  
+      <view class="h-tab-b-item {{tabArr.curBdIndex=='2'? 'h-tab-b-active' : ''}}">
+        <block wx:for="{{starproducts}}" wx:key="{{item.index}}"> 
+          <view class="h-tab-b-i-item" data-productid="{{item.productId}}" data-productnumber="{{item.productNumber}}" bindtap='nativeToProtuctInfo'>
+            <view class="h-tab-b-i-i-top">
+              <view class="h-tab-b-i-i-t-left">
+                <view class="h-tab-b-i-i-t-l-title">{{item.name}}</view>
+                <view class="h-tab-b-i-i-t-l-price"><text style="font-size:3vw;">￥</text>{{item.showPrice}}.00</view>
+              </view>
+              <image class="h-tab-b-i-i-t-right" src='{{item.picImg}}'></image>
+            </view>
+            <view class="h-tab-b-i-i-bottom">
+              <image class="h-tab-b-i-i-b-img" src='../../images/tab_star.png' mode='aspectFit'></image>
+              <view class="h-tab-b-i-i-b-text">{{item.introduce}}</view>
+            </view>
+          </view>
+        </block>
+      </view>  
+      <view class="h-tab-b-item {{tabArr.curBdIndex=='3'? 'h-tab-b-active' : ''}}">
+        <block wx:for="{{commentproducts}}" wx:key="{{item.index}}"> 
+          <view class="h-tab-b-i-item" data-productid="{{item.productId}}" data-productnumber="{{item.productNumber}}" bindtap='nativeToProtuctInfo'>
+            <view class="h-tab-b-i-i-top">
+              <view class="h-tab-b-i-i-t-left">
+                <view class="h-tab-b-i-i-t-l-title">{{item.name}}</view>
+                <view class="h-tab-b-i-i-t-l-price"><text style="font-size:3vw;">￥</text>{{item.showPrice}}.00</view>
+              </view>
+              <image class="h-tab-b-i-i-t-right" src='{{item.picImg}}'></image>
+            </view>
+            <view class="h-tab-b-i-i-bottom">
+              <image class="h-tab-b-i-i-b-img" src='../../images/tab_star.png' mode='aspectFit'></image>
+              <view class="h-tab-b-i-i-b-text">{{item.introduce}}</view>
+            </view>
+          </view>
+        </block>
+      </view>  
+    </view>  
+    <view class="h-tab-b-foot" style="display:{{moreLoading==true? 'flex':'none'}}">—— 正在加载 ——</view>
+    <view class="h-tab-b-foot" style="display:{{noMoreData==true? 'flex':'none'}}">—— 已经到底啦 ——</view>
+  </view>  
+</view>
+
+
+

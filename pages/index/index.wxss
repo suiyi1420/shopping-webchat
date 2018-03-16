@@ -1,0 +1,49 @@
+/**index.wxss**/
+page{height:100%;width:100%;background-color:#f3f1f1;}
+.image-swiper{
+  width: 100%;
+  height:30%;
+}
+.slide-image{  
+    width: 100%;  
+    height: 100%;
+}
+.swiper-navigator{
+  width: 100%;  
+  height: 100%;
+}
+.index-leibie{height:60%;width:100%;display:flex;background-color:#fff;flex-wrap:wrap;}
+.i-l-item{width:30%;height:calc(50% - 4vw);display:flex;justify-content: center;flex-direction:column;padding:2vw 1.5% ;text-align: center;}
+.i-l-i-title{font-weight:bold;font-size:3.6vw;}
+.i-l-i-sub{color:#aaa;font-size:3.5vw;}
+.i-l-i-pic{width: 100%;}
+
+.hotproduct{min-height:70%;width:100vw;}
+.hotproduct .h-tab{width:100%;}
+.hotproduct .h-tab-top{height:15vw;display:flex;justify-content: center;align-items: center;background-color:#ffffff;}
+.hotproduct .h-tab-is-top{position: fixed;top: 0;left: 0;}
+.hotproduct .h-tab-top .h-tab-t-item{width:25vw;height:90%;display:flex;justify-content: center;align-items: center;font-size: 4vw;color:#777777;}
+.hotproduct .h-tab-top .h-active{color:#000000;border-bottom: 2px solid #1f8edb;}
+.hotproduct .h-tab-bottom{margin-top:3vw;}
+.hotproduct .h-tab-bottom .h-tab-b-item{display:none;}
+.hotproduct .h-tab-bottom .h-tab-b-active{display:block;}
+
+.h-tab-b-i-item{height:30vw;background-color:#fff;width:88vw;margin:0 auto;margin-bottom:3vw;padding:5vw 3vw;}
+.h-tab-b-i-i-top{height:80%;display:flex;}
+.h-tab-b-i-i-t-left{width:70%;height:100%;}
+.h-tab-b-i-i-t-left .h-tab-b-i-i-t-l-title{font-size: 3.8vw;font-weight: bold;height:50%;}
+.h-tab-b-i-i-t-l-price{height:50%;color: goldenrod;font-size: 5vw;display:flex;align-items: center;}
+
+.h-tab-b-i-i-t-right{width:30%;height:100%;}
+
+.h-tab-b-i-i-bottom{height:25%;display:flex;align-items: center;}
+.h-tab-b-i-i-b-img{width:10%;height: 100%;}
+.h-tab-b-i-i-b-text{width:90%;height: 100%;font-size: 4vw;color:#999999;display:flex;align-items: center;}
+.h-tab-b-foot{display:flex;align-items: center;justify-content: center;color:#999999;font-size:4vw;}
+
+
+
+
+.h-title{height:10%;overflow: hidden;display: flex;justify-content: center;align-content: center;}
+.h-title .h-t-pic{height:100%;width:8vw;}
+.h-t-text{display: flex;justify-content: center;align-items: center;color:#777777;font-weight: bold;font-family: '宋体'；}
